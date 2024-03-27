@@ -1,0 +1,16 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: uno-api
+  description: team-uno: uno-api
+  annotations:
+    argocd.argoproj.io/synchronization: Exclude
+    argocd/app-name: uno-api
+    argocd/namespace: team-uno-gitops
+    backstage.io/kubernetes-id: uno-api
+    backstage.io/kubernetes-label-selector': 'app=uno-api'
+spec:
+  type: resources
+  lifecycle: production
+  owner: 
