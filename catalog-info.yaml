@@ -2,30 +2,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: app-uno
-  description: "team-a: app-uno"
+  name: test
+  description: "team-a: test"
   annotations:
-    argocd/app-selector: "team-a-gitops=app-uno"
+    argocd/app-selector: "team-a-gitops=test"
     argocd/app-namespace: team-a-gitops
-    backstage.io/kubernetes-id: app-uno
-    backstage.io/kubernetes-label-selector: "app.kubernetes.io/instance=app-uno"
+    backstage.io/kubernetes-id: test
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/instance=test'
 spec:
   type: resources
   lifecycle: production
   owner: group:default/ops
-  providesApis:
-    - app-uno
----
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: app-uno
-  description: The apis.app uno REST API
-spec:
-  type: openapi
-  lifecycle: production
-  owner: group:default/ops
-  apiConsumedBy:
-    - app-uno
-  definition:
-    $openapi: ./petstore.yaml
